@@ -6,7 +6,7 @@
 /*   By: jsanger <jsanger@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/25 15:41:48 by jsanger           #+#    #+#             */
-/*   Updated: 2024/01/29 00:07:00 by jsanger          ###   ########.fr       */
+/*   Updated: 2024/01/29 17:31:38 by jsanger          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define PHONEBOOK_HPP
 
 # include <iostream>
+# include <iomanip>
 # include "contact.hpp"
 
 
