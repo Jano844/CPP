@@ -6,7 +6,7 @@
 /*   By: jsanger <jsanger@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/28 15:17:29 by jsanger           #+#    #+#             */
-/*   Updated: 2024/01/28 15:17:32 by jsanger          ###   ########.fr       */
+/*   Updated: 2024/01/30 12:06:56 by jsanger          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,8 @@ private:
 	std::string	phone_number;
 	std::string	darkest_secret;
 public:
-	contact(void) {
-	};
-	~contact(void) {
-	};
+	contact(void) {};
+	~contact(void) {};
 	void		set_first_name(std::string first_name);
 	void		set_last_name(std::string last_name);
 	void		set_nick_name(std::string nick_name);

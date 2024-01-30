@@ -6,7 +6,7 @@
 /*   By: jsanger <jsanger@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/25 15:41:48 by jsanger           #+#    #+#             */
-/*   Updated: 2024/01/29 17:31:38 by jsanger          ###   ########.fr       */
+/*   Updated: 2024/01/30 14:30:19 by jsanger          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 
 # include <iostream>
 # include <iomanip>
+# include <cstdlib>
+# include <csignal>
 # include "contact.hpp"
 
 
@@ -31,11 +33,16 @@ public:
 	~phonebook() {
 		std::cout << "Phonebook destroyed" << std::endl;
 	};
+	static void signal_handler(int signal) {
+		if (signal == SIGINT) {
+			std::cout << std::endl << "Signal received: Exiting phonebook" << std::endl;
+			exit(0);
+		}
+	};
 	void	add_contact(void);
 	void	search_contact(void);
 	void	print_index(int i);
 	void	exit_phonebook(void);
 };
-
 
 #endif

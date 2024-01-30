@@ -28,10 +28,6 @@ void	phonebook::add_contact() {
 	this->index++;
 }
 
-	// std::string first_name = contact.get_first_name();
-	// std::string last_name = contact.get_last_name();
-	// std::string nick_name = contact.get_nick_name();
-
 void	phonebook::print_index(int i)
 {
 	contact &contact = this->contacts[i];
