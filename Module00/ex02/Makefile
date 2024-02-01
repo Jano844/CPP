@@ -1,6 +1,6 @@
 NAME		= job
-COMPILER	= g++
-CCFLAGS		= -Wall -Wextra -Werror -std=c++98
+CXX	= c++
+CXXFLAGS		= -Wall -Wextra -Werror -std=c++98
 
 SRCS		= Account.cpp \
 			  test.cpp \
@@ -15,11 +15,11 @@ all: $(NAME)
 
 $(NAME): $(OBJS)
 	@echo "$(GREEN)Compiling $(NAME)..."
-	@$(COMPILER) $(CCFLAGS) $(OBJS) -o $(NAME)
+	@$(CXX) $(CXXFLAGS) $(OBJS) -o $(NAME)
 	@echo "$(GREEN)$(NAME) compiled successfully!$(CRYAN)"
 
 %.o: %.cpp
-	$(COMPILER) $(CCFLAGS) -c $< -o $@
+	$(CXX) $(CXXFLAGS) -c $< -o $@
 
 clean:
 	@echo "$(RED)Cleaning $(NAME) object files..."

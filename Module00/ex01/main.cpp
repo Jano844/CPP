@@ -6,7 +6,7 @@
 /*   By: jsanger <jsanger@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/30 12:23:40 by jsanger           #+#    #+#             */
-/*   Updated: 2024/01/30 14:33:16 by jsanger          ###   ########.fr       */
+/*   Updated: 2024/02/01 16:03:55 by jsanger          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,6 @@ int	main(void)
 			std::cout	<< "Command not found try these commands" << std::endl\
 						<< "ADD" <<std::endl \
 						<< "SEARCH" <<std::endl \
-						<< "PRINT" <<std::endl \
 						<< "EXIT" <<std::endl;
 		}
 	}

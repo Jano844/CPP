@@ -1,10 +1,10 @@
-NAME		= phonebook
-CXX			= c++
-CXXFLAGS	= -Wall -Wextra -Werror -std=c++98
+NAME		=	Zombie
+COMPILER	=	g++
+CCFLAGS		=	-Wall -Wextra -Werror -std=c++98
 
-SRCS		=	main.cpp \
-				contact.cpp \
-				phonebook.cpp \
+SRCS		=	Zombie.cpp \
+				zombieHorde.cpp \
+				main.cpp
 
 OBJS		= $(SRCS:.cpp=.o)
 
@@ -17,11 +17,11 @@ all: $(NAME)
 
 $(NAME): $(OBJS)
 	@echo "$(GREEN)Compiling $(NAME)..."
-	@$(CXX) $(CXXFLAGS) $(OBJS) -o $(NAME)
+	@$(COMPILER) $(CCFLAGS) $(OBJS) -o $(NAME)
 	@echo "$(GREEN)$(NAME) compiled successfully!$(CRYAN)"
 
 %.o: %.cpp
-	@$(CXX) $(CXXFLAGS) -c $< -o $@
+	$(COMPILER) $(CCFLAGS) -c $< -o $@
 
 clean:
 	@echo "$(RED)Cleaning $(NAME) object files..."
