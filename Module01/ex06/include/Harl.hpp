@@ -14,6 +14,6 @@ private:
 public:
 	Harl(void);
 	~Harl(void);
+	void	harlfilter(std::string str);
 	void	complain( std::string level );
 };
-

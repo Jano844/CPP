@@ -6,12 +6,11 @@
 /*   By: jsanger <jsanger@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/25 15:41:48 by jsanger           #+#    #+#             */
-/*   Updated: 2024/01/30 14:30:19 by jsanger          ###   ########.fr       */
+/*   Updated: 2024/02/02 16:49:44 by jsanger          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PHONEBOOK_HPP
-# define PHONEBOOK_HPP
+#pragma once
 
 # include <iostream>
 # include <iomanip>
@@ -45,4 +44,3 @@ public:
 	void	exit_phonebook(void);
 };
 
-#endif

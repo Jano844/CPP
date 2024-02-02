@@ -1,7 +1,5 @@
 
-
-#ifndef HUMANB_HPP
-#define HUMANB_HPP
+#pragma once
 
 #include "Weapon.hpp"
 
@@ -16,5 +14,3 @@ public:
 	void	attack(void);
 	void	setWeapon(Weapon &weapon);
 };
-
-#endif
