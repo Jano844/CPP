@@ -61,6 +61,10 @@
 		"unordered_map": "cpp",
 		"utility": "cpp",
 		"vector": "cpp",
-		"csignal": "cpp"
+		"csignal": "cpp",
+		"deque": "cpp",
+		"fstream": "cpp",
+		"stack": "cpp",
+		"filesystem": "cpp"
 	}
 }
