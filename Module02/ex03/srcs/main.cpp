@@ -5,10 +5,14 @@
 
 int main()
 {
-	Point	a(1, 5);
-	Point	b(12.5f, 10.6f);
-	Point	c;
+	Point	a(0, 0);
+	Point	b(5, 0);
+	Point	c(0, 5);
+	Point	point(0.1f, 1);
 
-	std::cout << 
+	if (bsp(a, b, c, point))
+		std::cout << "Point is inside the triangle a b c\n";
+	else
+		std::cout << "Point isn't inside the triangle a b c\n";
 	return (0);
 }

@@ -1,6 +1,6 @@
 NAME		= BSP
 CXX			= c++
-CXXFLAGS	= -Wall -Wextra -Werror -std=c++98
+# CXXFLAGS	= -Wall -Wextra -Werror -std=c++98
 
 SRCS		=	srcs/main.cpp \
 				srcs/Fixed.cpp \

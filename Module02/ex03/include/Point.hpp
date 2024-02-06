@@ -20,3 +20,5 @@ public:
 	Fixed get_x() const;
 	Fixed get_y() const;
 };
+
+bool bsp( Point const a, Point const b, Point const c, Point const point);

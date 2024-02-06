@@ -2,15 +2,15 @@
 #include "../include/Point.hpp"
 
 Point::Point(): x(0), y(0) {
-	std::cout << "Default constructor called\n";
+	// std::cout << "Default constructor called\n";
 }
 
 Point::Point(const float num1, const float num2): x(num1), y(num2) {
-	std::cout << "float constructor called\n";
+	// std::cout << "float constructor called\n";
 }
 
 Point::Point(const Point &reference) : x(reference.x), y(reference.y) {
-	std::cout << "Copy constructor called\n";
+	// std::cout << "Copy constructor called\n";
 }
 
 Point& Point::operator=(const Point &reference) {
@@ -22,7 +22,7 @@ Point& Point::operator=(const Point &reference) {
 }
 
 Point::~Point() {
-	std::cout << "Destructor called\n";
+	// std::cout << "Destructor called\n";
 }
 
 Fixed Point::get_x() const {
