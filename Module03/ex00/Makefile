@@ -1,11 +1,9 @@
-NAME		= BSP
+NAME		= ClapTrap
 CXX			= c++
 CXXFLAGS	= -Wall -Wextra -Werror -std=c++98
 
 SRCS		=	srcs/main.cpp \
-				srcs/Fixed.cpp \
-				srcs/bsp.cpp \
-				srcs/Point.cpp
+				srcs/ClapTrap.cpp 
 
 OBJS		= $(SRCS:.cpp=.o)
 
