@@ -11,8 +11,11 @@ int main() {
 	const Animal* cat = new Cat();
 	const Animal* dog = new Dog();
 
+	std::cout << cat->getType() << " makes this sound:" << std::endl;
 	cat->makeSound();
+	std::cout << dog->getType() << " makes this sound:" << std::endl;
 	dog->makeSound();
+	std::cout << animal->getType() << " makes this sound:" << std::endl;
 	animal->makeSound();
 
 	animal->test();

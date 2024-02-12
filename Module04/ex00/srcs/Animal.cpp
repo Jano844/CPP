@@ -20,3 +20,13 @@ void Animal::makeSound() const {
 void Animal::test() const{
 	std::cout << "test\n";
 }
+
+// getter setter
+
+std::string Animal::getType() const {
+	return this->type;
+}
+
+void Animal::setType(std::string type) {
+	this->type = type;
+}

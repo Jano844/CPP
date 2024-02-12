@@ -13,6 +13,10 @@ public:
 
 	virtual void makeSound() const;
 	void test() const;
+
+	// getter setter
+	std::string getType() const;
+	void setType(std::string type);
 protected:
 	std::string type;
 };
