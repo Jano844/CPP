@@ -22,3 +22,17 @@ Cat::~Cat() {
 void Cat::makeSound() const {
 	std::cout << "Miau\n";
 }
+
+void Cat::set_ideas(int start, int end, std::string input) {
+	while (start < end) {
+		this->brain->set_idea(start, input);
+		start++;
+	}
+
+}
+
+void Cat::printIdears() {
+	for (int i = 0; i < 100; i++) {
+		std::cout << this->brain->get_idea(i) << std::endl;
+	}
+}
