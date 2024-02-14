@@ -24,29 +24,3 @@ Animal &Animal::operator=(const Animal &reference) {
 	return *this;
 }
 
-void Animal::makeSound() const {
-	std::cout << this->type << " sound\n";
-}
-
-void Animal::test() const{
-	std::cout << "test\n";
-}
-
-
-void Animal::printIdears() const {
-}
-
-void Animal::set_ideas(int start, int end, std::string input) const {
-	std::cout << "set_ideas\n";
-	std::cout << start << " " << end << " " << input << std::endl;
-}
-
-// getter setter
-
-std::string Animal::getType() const {
-	return this->type;
-}
-
-void Animal::setType(std::string type) {
-	this->type = type;
-}
