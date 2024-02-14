@@ -26,8 +26,8 @@ public:
 	void	set_hit_points(int hit_points);
 	void	set_energy(int energy);
 	void	set_attac_damage(int attac_damage);
-	int		get_hit_points();
-	int		get_energy();
-	int		get_attac_damage();
-	std::string	get_str();
+	int		get_hit_points() const;
+	int		get_energy() const;
+	int		get_attac_damage() const;
+	std::string	get_str() const;
 };

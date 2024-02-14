@@ -63,18 +63,18 @@ void	ClapTrap::set_attac_damage(int attac_damage) {
 	this->attac_damage = attac_damage;
 }
 
-int		ClapTrap::get_hit_points() {
+int		ClapTrap::get_hit_points() const {
 	return this->hit_points;
 }
 
-int		ClapTrap::get_energy() {
+int		ClapTrap::get_energy() const{
 	return this->energy;
 }
 
-int		ClapTrap::get_attac_damage() {
+int		ClapTrap::get_attac_damage() const{
 	return this->attac_damage;
 }
 
-std::string	ClapTrap::get_str() {
+std::string	ClapTrap::get_str() const {
 	return this->str;
 }
