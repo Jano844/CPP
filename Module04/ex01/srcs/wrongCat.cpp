@@ -14,3 +14,14 @@ wrongCat::~wrongCat() {
 void wrongCat::makeSound() const {
 	std::cout << "uaiM" << std::endl;
 }
+
+wrongCat::wrongCat(const wrongCat &reference) {
+	std::cout << "WrongCat copy constructor called" << std::endl;
+	*this = reference;
+}
+
+wrongCat &wrongCat::operator=(const wrongCat &reference) {
+	std::cout << "WrongCat assignation operator called" << std::endl;
+	this->type = reference.type;
+	return *this;
+}

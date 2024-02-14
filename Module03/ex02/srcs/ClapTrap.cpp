@@ -6,8 +6,22 @@ ClapTrap::ClapTrap(std::string str): str(str), hit_points(10), energy(10), attac
 	std::cout << "Asign name constructor called\n";
 }
 
+ClapTrap::ClapTrap(const ClapTrap &reference) {
+	std::cout << "Copy constructor called\n";
+	*this = reference;
+}
+
 ClapTrap::~ClapTrap() {
 	std::cout << "Destructor called\n";
+}
+
+ClapTrap& ClapTrap::operator=(const ClapTrap &reference) {
+	std::cout << "Assignation operator called\n";
+	this->str = reference.str;
+	this->hit_points = reference.hit_points;
+	this->energy = reference.energy;
+	this->attac_damage = reference.attac_damage;
+	return *this;
 }
 
 void	ClapTrap::attack(const std::string& target) {

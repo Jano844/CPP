@@ -15,3 +15,14 @@ Dog::~Dog() {
 void Dog::makeSound() const {
 	std::cout << "Wooof\n";
 }
+
+Dog::Dog(const Dog &reference) {
+	std::cout << "Dog copy constructor called\n";
+	*this = reference;
+}
+
+Dog &Dog::operator=(const Dog &reference) {
+	std::cout << "Dog assignation operator called\n";
+	this->type = reference.type;
+	return *this;
+}

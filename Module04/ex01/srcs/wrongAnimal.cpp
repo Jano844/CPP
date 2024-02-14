@@ -21,3 +21,14 @@ void wrongAnimal::makeSound() const {
 void wrongAnimal::test() const{
 	std::cout << "test\n";
 }
+
+wrongAnimal::wrongAnimal(const wrongAnimal &reference) {
+	std::cout << "wrongAnimal copy constructor called\n";
+	*this = reference;
+}
+
+wrongAnimal &wrongAnimal::operator=(const wrongAnimal &reference) {
+	std::cout << "wrongAnimal assignation operator called\n";
+	this->type = reference.type;
+	return *this;
+}

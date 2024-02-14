@@ -50,4 +50,5 @@ int	main()
 	cat->set_ideas(0, 50, "HelloWorld");
 	cat->printIdears();
 	delete cat;
+
 }

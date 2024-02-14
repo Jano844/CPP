@@ -13,7 +13,11 @@ protected:
 	int	attac_damage;
 public:
 	ClapTrap(std::string str);
+	ClapTrap(const ClapTrap& reference);
 	~ClapTrap();
+
+	ClapTrap& operator=(const ClapTrap& reference);
+
 	virtual void attack(const std::string& target);
 	void takeDamage(unsigned int amount);
 	void beRepaired(unsigned int amount);
