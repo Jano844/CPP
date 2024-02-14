@@ -42,11 +42,12 @@
 
 int	main()
 {
-	Cat cat;
+	const Animal* cat = new Cat();
 
 
-	std::cout << cat.getType() << std::endl;
-	cat.makeSound();
-	cat.set_ideas(0, 50, "HelloWorld");
-	cat.printIdears();
+	std::cout << cat->getType() << std::endl;
+	cat->makeSound();
+	cat->set_ideas(0, 50, "HelloWorld");
+	cat->printIdears();
+	delete cat;
 }
