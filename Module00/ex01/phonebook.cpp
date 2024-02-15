@@ -1,5 +1,21 @@
 #include "phonebook.hpp"
 
+phonebook::phonebook(void) {
+	std::cout << "create a Phonebook for up to 8 contacts" << std::endl;
+	this->index = 0;
+};
+
+phonebook::~phonebook() {
+	std::cout << "Phonebook destroyed" << std::endl;
+};
+
+void phonebook::signal_handler(int signal) {
+	if (signal == SIGINT) {
+		std::cout << std::endl << "Signal received: Exiting phonebook" << std::endl;
+		exit(0);
+	}
+};
+
 void	phonebook::add_contact() {
 	std::string	str;
 
@@ -42,50 +58,28 @@ void	phonebook::print_index(int i)
 {
 	contact &contact = this->contacts[i];
 
-	std::string first_name;
-	std::string last_name;
-	std::string nick_name;
+	std::string first_name = contact.get_first_name();
+	std::string last_name = contact.get_last_name();
+	std::string nick_name = contact.get_nick_name();
 
-	int slen_first = contact.get_first_name().length();
-	int slen_last = contact.get_last_name().length();
-	int slen_nick = contact.get_nick_name().length();
+	if (first_name.length() > 10) {
+		first_name.resize(9);
+		first_name += ".";
+	} else
+		first_name.resize(first_name.length());
+	//---------------------
+	if (last_name.length() > 10) {
+		last_name.resize(9);
+		last_name += ".";
+	} else
+		last_name.resize(last_name.length());
+	//---------------------
+	if (nick_name.length() > 10) {
+		nick_name.resize(9);
+		nick_name += ".";
+	} else
+		nick_name.resize(nick_name.length());
 
-
-	// firstname
-	if (slen_first == 10) {
-		first_name = contact.get_first_name().substr(0, 10);
-	}
-	else if (slen_first >= 10) {
-		first_name = contact.get_first_name().substr(0, 9) + ".";
-	}
-	else {
-		first_name = contact.get_first_name().substr(0, slen_first);
-	}
-	// -----------------------------
-
-	// lastname
-	if (slen_last == 10) {
-		last_name = contact.get_last_name().substr(0, 10);
-	}
-	else if (slen_last >= 10) {
-		last_name = contact.get_last_name().substr(0, 9) + ".";
-	}
-	else {
-		last_name = contact.get_last_name().substr(0, slen_last);
-	}
-	// -----------------------------
-
-	// nickname
-	if (slen_nick == 10) {
-		nick_name = contact.get_nick_name().substr(0, 10);
-	}
-	else if (slen_nick >= 10) {
-		nick_name = contact.get_nick_name().substr(0, 9) + ".";
-	}
-	else {
-		nick_name = contact.get_nick_name().substr(0, slen_nick);
-	}
-	// -----------------------------
 
 
 	//printing phonebook
