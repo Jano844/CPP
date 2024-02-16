@@ -37,9 +37,13 @@ int		main( void ) {
 	ints_t::iterator	wit_begin	= withdrawals.begin();
 	ints_t::iterator	wit_end		= withdrawals.end();
 
+	// DisplayAccountsInfos gets called once
 	Account::displayAccountsInfos();
+	// DisplayStatus gets called for every object of accounts
 	std::for_each( acc_begin, acc_end, std::mem_fun_ref( &Account::displayStatus ) );
 
+
+	// makeDeposit gets called for every object of accounts
 	for ( acc_int_t it( acc_begin, dep_begin );
 		  it.first != acc_end && it.second != dep_end;
 		  ++(it.first), ++(it.second) ) {
@@ -47,9 +51,12 @@ int		main( void ) {
 		(*(it.first)).makeDeposit( *(it.second) );
 	}
 
+	// DisplayAccountsInfos gets called once
 	Account::displayAccountsInfos();
+	// DisplayStatus gets called for every object of accounts
 	std::for_each( acc_begin, acc_end, std::mem_fun_ref( &Account::displayStatus ) );
 
+	// makeWithdrawal gets called for every object of accounts
 	for ( acc_int_t it( acc_begin, wit_begin );
 		  it.first != acc_end && it.second != wit_end;
 		  ++(it.first), ++(it.second) ) {

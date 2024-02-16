@@ -8,6 +8,8 @@ int	Account::_totalNbWithdrawals = 0;
 int	Account::_totalNbDeposits = 0;
 int	Account::_totalAmount = 0;
 
+
+//getter setter
 int	Account::getNbAccounts(void) {
 	return _nbAccounts;
 }
@@ -28,6 +30,7 @@ int	Account::checkAmount(void) const {
 	return this->_amount;
 }
 
+// constructor destructor
 Account::Account(int initial_deposit) {
 	this->_nbDeposits = 0;
 	this->_nbWithdrawals = 0;
@@ -47,7 +50,7 @@ Account::~Account() {
 	_nbAccounts--;
 }
 
-
+// memberfunctions
 void Account::_displayTimestamp() {
 	time_t now;
 	time(&now);
