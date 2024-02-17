@@ -6,7 +6,7 @@
 /*   By: jsanger <jsanger@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/30 12:23:40 by jsanger           #+#    #+#             */
-/*   Updated: 2024/02/15 22:53:39 by jsanger          ###   ########.fr       */
+/*   Updated: 2024/02/17 14:16:47 by jsanger          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int	main(void)
 		std::cin	>> command;
 		if (std::cin.eof()) {
 			phonebook.exit_phonebook();
-			return 0;
+			return 1;
 		}
 		if (command == "ADD")
 			phonebook.add_contact();
