@@ -1,6 +1,14 @@
 NAME		= harlFilter
 CXX			= c++
-CXXFLAGS	= -Wall -Wextra -Werror -std=c++98
+UNAME_S		:= $(shell uname -s)
+
+
+# Attention: -Wextra disabled for Linux because follow through is wanted
+ifeq ($(UNAME_S), Linux)
+	CXXFLAGS	= -Wall -Werror -std=c++98
+else
+	CXXFLAGS	= -Wall -Wextra -Werror -std=c++98
+endif
 
 SRCS		=	srcs/main.cpp \
 				srcs/Harl.cpp

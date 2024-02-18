@@ -6,7 +6,7 @@
 /*   By: jsanger <jsanger@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/30 15:10:40 by jsanger           #+#    #+#             */
-/*   Updated: 2024/02/02 16:49:19 by jsanger          ###   ########.fr       */
+/*   Updated: 2024/02/17 22:38:33 by jsanger          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ class	Zombie
 	public:
 		Zombie(void);
 		~Zombie(void);
+		Zombie* zombieHorde( int N, std::string name ); 
 		void	setName(std::string name);
 		void	announce();
 };

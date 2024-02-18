@@ -1,6 +1,7 @@
 NAME		= replace
 CXX			= c++
 CXXFLAGS	= -Wall -Wextra -Werror -std=c++98
+# CXXFLAGS	=  -std=c++98 -g
 
 SRCS		=	srcs/main.cpp
 
@@ -21,16 +22,19 @@ $(NAME): $(OBJS)
 %.o: %.cpp
 	@$(CXX) $(CXXFLAGS) -c $< -o $@
 
+delete_replace:
+	@rm -f *.replace
+	@cd in_directory && rm -f *.replace && cd ..
+	@echo "$(RED)all .replace files removed! in ex04 and ex04/in_directory directory."
+
 clean:
 	@echo "$(RED)Cleaning $(NAME) object files..."
 	@rm -f $(OBJS)
-	@rm -f *.replace
-	@echo "$(RED)all .replace files removed!"
 
-fclean: clean
+fclean: clean delete_replace
 	@echo "$(RED)Cleaning $(NAME)..."
 	@rm -f $(NAME)
 
 re: fclean all
 
-.PHONY: clean fclean re all
+.PHONY: clean fclean re all delete_replace

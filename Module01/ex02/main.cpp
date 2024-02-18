@@ -14,3 +14,7 @@ int main(void) {
 	std::cout << "ref adress: " << &references << std::endl;
 	return (0);
 }
+
+
+// pointer can be NULL and change its address that it points to, reference stays always the same and cant be NULL
+// pointers more flexible, but references more stable, they have to point to an existing not changeing object

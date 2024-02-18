@@ -1,5 +1,5 @@
 NAME		=	Zombie
-COMPILER	=	g++
+COMPILER	=	c++
 CCFLAGS		=	-Wall -Wextra -Werror -std=c++98
 
 SRCS		=	Zombie.cpp \
@@ -21,7 +21,7 @@ $(NAME): $(OBJS)
 	@echo "$(GREEN)$(NAME) compiled successfully!$(CRYAN)"
 
 %.o: %.cpp
-	$(COMPILER) $(CCFLAGS) -c $< -o $@
+	@$(COMPILER) $(CCFLAGS) -c $< -o $@
 
 clean:
 	@echo "$(RED)Cleaning $(NAME) object files..."

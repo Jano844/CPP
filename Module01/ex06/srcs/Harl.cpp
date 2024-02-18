@@ -62,3 +62,41 @@ void	Harl::harlfilter(std::string str)
 			std::cout << "[ Probably complaining about insignificant problems ]" << std::endl;
 	}
 }
+
+
+
+// if someone wont accept the follow trough of the switch case
+// void	Harl::harlfilter(std::string str)
+// {
+// 	int num = 5;
+// 	std::string switches[4] = {"DEBUG", "INFO", "WARNING", "ERROR"};
+// 	for (int i = 0; i < 4; i++) {
+// 		if (str == switches[i]) {
+// 			num = i;
+// 			break ;
+// 		}
+// 	}
+// 	switch (num)
+// 	{
+// 		case 0:
+// 			complain("DEBUG");
+// 			complain("INFO");
+// 			complain("WARNING");
+// 			complain("ERROR");
+// 			break;
+// 		case 1:
+// 			complain("INFO");
+// 			complain("WARNING");
+// 			complain("ERROR");
+// 			break;
+// 		case 2:
+// 			complain("WARNING");
+// 			complain("ERROR");
+// 			break;
+// 		case 3:
+// 			complain("ERROR");
+// 			break;
+// 		default:
+// 			std::cout << "[ Probably complaining about insignificant problems ]" << std::endl;
+// 	}
+// }
