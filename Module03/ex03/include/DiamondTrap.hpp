@@ -7,13 +7,17 @@
 #include "ClapTrap.hpp"
 #include <iostream>
 
+class FragTrap;
+class ScavTrap;
+
 class DiamondTrap : public ScavTrap, public FragTrap
 {
 private:
 	std::string str;
 public:
 	DiamondTrap(std::string str);
-	~DiamondTrap();
+	virtual ~DiamondTrap();
+	DiamondTrap &operator=(const DiamondTrap &reference);
 
 	using	ScavTrap::attack;
 	void	whoAmI( void );

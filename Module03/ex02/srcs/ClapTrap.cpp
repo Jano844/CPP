@@ -2,8 +2,12 @@
 
 #include "../include/ClapTrap.hpp"
 
+ClapTrap::ClapTrap(): str("ClapTrap"), hit_points(10), energy(10), attac_damage(0) {
+	std::cout << "ClapTrap " << this->str << " constructor called\n";
+}
+
 ClapTrap::ClapTrap(std::string str): str(str), hit_points(10), energy(10), attac_damage(0) {
-	std::cout << "Asign name constructor called\n";
+	std::cout << "ClapTrap " << this->str << " constructor called\n";
 }
 
 ClapTrap::ClapTrap(const ClapTrap &reference) {
@@ -12,7 +16,7 @@ ClapTrap::ClapTrap(const ClapTrap &reference) {
 }
 
 ClapTrap::~ClapTrap() {
-	std::cout << "Destructor called\n";
+	std::cout << "ClapTrap " << this->str << " Destructor called\n";
 }
 
 ClapTrap& ClapTrap::operator=(const ClapTrap &reference) {
@@ -25,6 +29,10 @@ ClapTrap& ClapTrap::operator=(const ClapTrap &reference) {
 }
 
 void	ClapTrap::attack(const std::string& target) {
+	if (this->hit_points <= 0) {
+		std::cout << "ClapTrap " << this->str << " cant attack, because hes dead\n";
+		return ;
+	}
 	if (this->energy == 0)
 		std::cout << "ClapTrap " << this->str << " cant attack, because hes out of energy\n";
 	else {
@@ -34,6 +42,10 @@ void	ClapTrap::attack(const std::string& target) {
 }
 
 void ClapTrap::takeDamage(unsigned int amount) {
+	if (this->hit_points <= 0) {
+		std::cout << "ClapTrap " << this->str << " cant get attacked, because hes dead\n";
+		return ;
+	}
 	this->hit_points -= amount;
 	std::cout << "ClapTrap " << this->str << " gets hit and takes " << amount << " points of damage!\n";
 	if (this->hit_points <= 0)
@@ -41,6 +53,10 @@ void ClapTrap::takeDamage(unsigned int amount) {
 }
 
 void ClapTrap::beRepaired(unsigned int amount) {
+	if (this->hit_points <= 0) {
+		std::cout << "ClapTrap " << this->str << " cant repair, because hes dead\n";
+		return ;
+	}
 	if (this->energy == 0)
 		std::cout << "ClapTrap" << this->str << "cant repair, because hes out of energy\n";
 	else {
@@ -61,6 +77,10 @@ void	ClapTrap::set_energy(int energy) {
 
 void	ClapTrap::set_attac_damage(int attac_damage) {
 	this->attac_damage = attac_damage;
+}
+
+void	ClapTrap::set_str(std::string str) {
+	this->str = str;
 }
 
 int		ClapTrap::get_hit_points() const {

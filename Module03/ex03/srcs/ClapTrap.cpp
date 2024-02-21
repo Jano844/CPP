@@ -2,21 +2,25 @@
 
 #include "../include/ClapTrap.hpp"
 
+ClapTrap::ClapTrap(): str("ClapTrap"), hit_points(10), energy(10), attac_damage(0) {
+	std::cout << "ClapTrap " << this->str << " constructor called\n";
+}
+
 ClapTrap::ClapTrap(std::string str): str(str), hit_points(10), energy(10), attac_damage(0) {
 	std::cout << "ClapTrap " << this->str << " constructor called\n";
 }
 
 ClapTrap::ClapTrap(const ClapTrap &reference) {
-	std::cout << "ClapTrap copy constructor called\n";
+	std::cout << "Copy constructor called\n";
 	*this = reference;
 }
 
 ClapTrap::~ClapTrap() {
-	std::cout << "ClapTrap " << this->str << " destructor called\n";
+	std::cout << "ClapTrap " << this->str << " Destructor called\n";
 }
 
 ClapTrap& ClapTrap::operator=(const ClapTrap &reference) {
-	std::cout << "ClapTrap assignation operator called\n";
+	std::cout << "Assignation operator called\n";
 	this->str = reference.str;
 	this->hit_points = reference.hit_points;
 	this->energy = reference.energy;
@@ -25,6 +29,10 @@ ClapTrap& ClapTrap::operator=(const ClapTrap &reference) {
 }
 
 void	ClapTrap::attack(const std::string& target) {
+	if (this->hit_points <= 0) {
+		std::cout << "ClapTrap " << this->str << " cant attack, because hes dead\n";
+		return ;
+	}
 	if (this->energy == 0)
 		std::cout << "ClapTrap " << this->str << " cant attack, because hes out of energy\n";
 	else {
@@ -34,6 +42,10 @@ void	ClapTrap::attack(const std::string& target) {
 }
 
 void ClapTrap::takeDamage(unsigned int amount) {
+	if (this->hit_points <= 0) {
+		std::cout << "ClapTrap " << this->str << " cant get attacked, because hes dead\n";
+		return ;
+	}
 	this->hit_points -= amount;
 	std::cout << "ClapTrap " << this->str << " gets hit and takes " << amount << " points of damage!\n";
 	if (this->hit_points <= 0)
@@ -41,6 +53,10 @@ void ClapTrap::takeDamage(unsigned int amount) {
 }
 
 void ClapTrap::beRepaired(unsigned int amount) {
+	if (this->hit_points <= 0) {
+		std::cout << "ClapTrap " << this->str << " cant repair, because hes dead\n";
+		return ;
+	}
 	if (this->energy == 0)
 		std::cout << "ClapTrap" << this->str << "cant repair, because hes out of energy\n";
 	else {
@@ -63,22 +79,22 @@ void	ClapTrap::set_attac_damage(int attac_damage) {
 	this->attac_damage = attac_damage;
 }
 
-int		ClapTrap::get_hit_points() {
+void	ClapTrap::set_str(std::string str) {
+	this->str = str;
+}
+
+int		ClapTrap::get_hit_points() const {
 	return this->hit_points;
 }
 
-int		ClapTrap::get_energy() {
+int		ClapTrap::get_energy() const{
 	return this->energy;
 }
 
-int		ClapTrap::get_attac_damage() {
+int		ClapTrap::get_attac_damage() const{
 	return this->attac_damage;
 }
 
-std::string	ClapTrap::get_str() {
+std::string	ClapTrap::get_str() const {
 	return this->str;
-}
-
-void	ClapTrap::set_name(std::string str) {
-	this->str = str;
 }

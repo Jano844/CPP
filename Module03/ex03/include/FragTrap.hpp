@@ -1,4 +1,5 @@
 
+
 #pragma once
 
 #include <iostream>
@@ -7,9 +8,12 @@
 class FragTrap : virtual public ClapTrap
 {
 private:
-	FragTrap();
 public:
+	FragTrap();
 	FragTrap(std::string str);
+	FragTrap(const FragTrap &reference);
 	~FragTrap();
+	FragTrap &operator=(const FragTrap &reference);
+
 	void highFivesGuys(void);
 };
