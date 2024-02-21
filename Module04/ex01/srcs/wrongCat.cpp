@@ -15,7 +15,7 @@ void wrongCat::makeSound() const {
 	std::cout << "uaiM" << std::endl;
 }
 
-wrongCat::wrongCat(const wrongCat &reference) {
+wrongCat::wrongCat(const wrongCat &reference) : wrongAnimal(reference) {
 	std::cout << "WrongCat copy constructor called" << std::endl;
 	*this = reference;
 }

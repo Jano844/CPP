@@ -14,7 +14,7 @@ Cat::Cat() {
 	}
 }
 
-Cat::Cat(const Cat &reference) {
+Cat::Cat(const Cat &reference) : Animal(reference){
 	std::cout << "Cat copy constructor called\n";
 	*this = reference;
 }
@@ -24,9 +24,14 @@ Cat::~Cat() {
 	delete this->brain;
 }
 
-Cat &Cat::operator=(const Cat &reference) {
+Cat& Cat::operator=(const Cat& reference)
+{
 	std::cout << "Cat assignation operator called\n";
-	this->type = reference.type;
+	if (this != &reference)
+	{
+		this->type = reference.type;
+		this->brain = new Brain(*reference.brain);
+	}
 	return *this;
 }
 

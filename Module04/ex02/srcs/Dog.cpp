@@ -1,4 +1,5 @@
 
+
 #include "../include/Dog.hpp"
 #include "../include/Brain.hpp"
 
@@ -9,11 +10,11 @@ Dog::Dog() {
 		this->brain = new Brain();
 	}
 	catch (const std::bad_alloc& bad_alloc) {
-		std::cout << "Memory AlloDogion is failed : " << bad_alloc.what() << std::endl;
+		std::cout << "Memory Allocation is failed : " << bad_alloc.what() << std::endl;
 	}
 }
 
-Dog::Dog(const Dog &reference) {
+Dog::Dog(const Dog &reference)  : Animal(reference) {
 	std::cout << "Dog copy constructor called\n";
 	*this = reference;
 }
@@ -23,9 +24,14 @@ Dog::~Dog() {
 	delete this->brain;
 }
 
-Dog &Dog::operator=(const Dog &reference) {
+Dog& Dog::operator=(const Dog& reference)
+{
 	std::cout << "Dog assignation operator called\n";
-	this->type = reference.type;
+	if (this != &reference)
+	{
+		this->type = reference.type;
+		this->brain = new Brain( *reference.brain );
+	}
 	return *this;
 }
 

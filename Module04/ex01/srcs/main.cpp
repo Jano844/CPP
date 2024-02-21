@@ -51,4 +51,15 @@ int	main()
 	cat->printIdears();
 	delete cat;
 
+	std::cout << "\n---------------------\n" << std::endl;
+
+	Dog basic;
+	Dog tmp = basic;
+	basic.makeSound();
+	basic.set_ideas(0, 50, "HelloWorld");
+	basic.printIdears();
+	tmp.makeSound();
+	tmp.printIdears();
+	return 0;
+
 }

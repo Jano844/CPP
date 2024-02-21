@@ -10,8 +10,8 @@ public:
 	Animal();
 	Animal(std::string type);
 	Animal(const Animal &reference);
-	virtual ~Animal();
-
+	virtual ~Animal();	// virual so constructor gets called if delete 
+						//of derived class is called, otherwise it might cause undefinded beahvior
 	Animal &operator=(const Animal &reference);
 
 	virtual void makeSound() const;

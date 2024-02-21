@@ -1,4 +1,4 @@
-NAME		= with_brain
+NAME		= abstract
 CXX			= c++
 CXXFLAGS	= -Wall -Wextra -Werror -std=c++98
 

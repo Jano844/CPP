@@ -13,8 +13,9 @@ Dog::Dog() {
 	}
 }
 
-Dog::Dog(const Dog &reference) : Animal(reference) {
+Dog::Dog(const Dog &reference)  : Animal(reference) {
 	std::cout << "Dog copy constructor called\n";
+	*this = reference;
 }
 
 Dog::~Dog() {
@@ -22,9 +23,14 @@ Dog::~Dog() {
 	delete this->brain;
 }
 
-Dog &Dog::operator=(const Dog &reference) {
+Dog& Dog::operator=(const Dog& reference)
+{
 	std::cout << "Dog assignation operator called\n";
-	this->type = reference.type;
+	if (this != &reference)
+	{
+		this->type = reference.type;
+		this->brain = new Brain( *reference.brain );
+	}
 	return *this;
 }
 
