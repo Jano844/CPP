@@ -4,24 +4,25 @@
 
 wrongCat::wrongCat() {
 	this->type = "wrongCat";
-	std::cout << "WrongCat constructor called" << std::endl;
+	std::cout << this->type << " default constructor called\n";
 }
 
 wrongCat::~wrongCat() {
-	std::cout << "WrongCat destructor called" << std::endl;
+	std::cout << "wrongCat destructor called\n";
 }
 
-void wrongCat::makeSound() const {
-	std::cout << "uaiM" << std::endl;
-}
 
-wrongCat::wrongCat(const wrongCat &reference) {
-	std::cout << "WrongCat copy constructor called" << std::endl;
+wrongCat::wrongCat(const wrongCat &reference) : wrongAnimal(reference) {
+	std::cout << "wrongCat copy constructor called\n";
 	*this = reference;
 }
 
+void wrongCat::makeSound() const {
+	std::cout << "uaiM\n";
+}
+
 wrongCat &wrongCat::operator=(const wrongCat &reference) {
-	std::cout << "WrongCat assignation operator called" << std::endl;
+	std::cout << "wrongCat assignation operator called\n";
 	this->type = reference.type;
 	return *this;
 }

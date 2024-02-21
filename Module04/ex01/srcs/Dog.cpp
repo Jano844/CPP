@@ -13,9 +13,8 @@ Dog::Dog() {
 	}
 }
 
-Dog::Dog(const Dog &reference) {
+Dog::Dog(const Dog &reference) : Animal(reference) {
 	std::cout << "Dog copy constructor called\n";
-	*this = reference;
 }
 
 Dog::~Dog() {

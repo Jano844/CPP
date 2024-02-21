@@ -8,14 +8,18 @@ class wrongAnimal
 {
 public:
 	wrongAnimal();
-	wrongAnimal(std::string type);
 	wrongAnimal(const wrongAnimal &reference);
+	wrongAnimal(std::string type);
 	virtual ~wrongAnimal();
 
 	wrongAnimal &operator=(const wrongAnimal &reference);
 
-	virtual void makeSound() const;
+	void makeSound() const;
 	void test() const;
+
+	// getter setter
+	std::string getType() const;
+	void setType(std::string type);
 protected:
 	std::string type;
 };

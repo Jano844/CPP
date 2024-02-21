@@ -11,13 +11,14 @@ Cat::~Cat() {
 	std::cout << "Cat destructor called\n";
 }
 
-void Cat::makeSound() const {
-	std::cout << "Miau\n";
-}
 
-Cat::Cat(const Cat &reference) {
+Cat::Cat(const Cat &reference) : Animal(reference) {
 	std::cout << "Cat copy constructor called\n";
 	*this = reference;
+}
+
+void Cat::makeSound() const {
+	std::cout << "Miau\n";
 }
 
 Cat &Cat::operator=(const Cat &reference) {
