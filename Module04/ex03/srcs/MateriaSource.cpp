@@ -18,7 +18,7 @@ MateriaSource::MateriaSource(const MateriaSource & other)
 // Deletes all the materia in the array
 MateriaSource::~MateriaSource()
 {
-	for (int i = 0; i < _materia_count; i++)
+	for (int i = 0; i < 4; i++)
 		delete this->_materias[i];
 }
 

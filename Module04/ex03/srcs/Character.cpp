@@ -28,7 +28,7 @@ Character::Character(Character const &other)
 // Destructor deletes all the materia in the inventory
 Character::~Character()
 {
-	for (int i = 0; i < _materia_count; i++)
+	for (int i = 0; i < 4; i++)
 		delete this->_materias[i];
 }
 
@@ -62,6 +62,8 @@ void	Character::equip(AMateria* m)
 	
 	if (!m || this->_materia_count >= 4) {
 		std::cout << "Materia doesnt exist or inventory of " << this->_name << " is full\n";
+		if (m)
+			delete m;
 		return ;
 	}
 	this->_materias[this->_materia_count] = m;
@@ -76,6 +78,7 @@ void	Character::unequip(int idx)
 		std::cout << this->_name << " doesnt have a Materia[" << idx << "]\n";
 		return ;
 	}
+	delete this->_materias[idx]; // del object because clone create new object
 	this->_materias[idx] = NULL;
 	idx++;
 	while (idx < 4) {

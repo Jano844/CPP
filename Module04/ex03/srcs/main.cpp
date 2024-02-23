@@ -23,7 +23,8 @@ int main()
 	ICharacter* bob = new Character("bob");
 	me->use(0, *bob);
 	me->use(1, *bob);
-	me->unequip(1);
+	me->unequip(0);
+	me->unequip(0);
 	me->use(0, *bob);
 	delete bob;
 	delete me;
