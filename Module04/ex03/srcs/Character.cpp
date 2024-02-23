@@ -53,17 +53,26 @@ std::string const &Character::getName() const
 
 void	Character::equip(AMateria* m)
 {
+	// std::cout << this->_materia_count << std::endl;
+	// if (!m)
+	// 	std::cout << "no m\n";
+	// else
+	// 	std::cout << "m\n";
+	// if (!m || this->_materia_count >= 4) {
+	
 	if (!m || this->_materia_count >= 4) {
 		std::cout << "Materia doesnt exist or inventory of " << this->_name << " is full\n";
 		return ;
 	}
 	this->_materias[this->_materia_count] = m;
+	// if (!this->_materias[this->_materia_count])
+	// 	std::cout << "wrong Input\n";
 	this->_materia_count++;
 }
 
 void	Character::unequip(int idx)
 {
-	if (idx <= this->_materia_count && idx >= 0) {
+	if (idx > this->_materia_count && idx >= 0) {
 		std::cout << this->_name << " doesnt have a Materia[" << idx << "]\n";
 		return ;
 	}
@@ -78,10 +87,17 @@ void	Character::unequip(int idx)
 
 void Character::use(int idx, ICharacter& target)
 {
-	if (idx <= this->_materia_count && idx >= 0) {
+	if (idx > this->_materia_count && idx < 0) {
 		std::cout << this->_name << " doesnt have a Materia[" << idx << "]\n";
 		return ;
 	}
-	this->_materias[idx]->use(target);
+	if (this->_materias[idx]) {
+		std::cout << "* " << this->_name;
+		this->_materias[idx]->use(target);
+	}
+	else {
+		std::cout << "* " << this->_name;
+		std::cout << " tries to use not existing Materia\n";
+	}
 }
 

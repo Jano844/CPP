@@ -1,0 +1,41 @@
+
+
+NAME		= interface
+CXX			= c++
+CXXFLAGS	= -Wall -Wextra -Werror -std=c++98
+
+SRCS		=	srcs/AMateria.cpp \
+				srcs/Character.cpp \
+				srcs/Cure.cpp \
+				srcs/Ice.cpp \
+				srcs/main.cpp \
+				srcs/MateriaSource.cpp
+
+OBJS		= $(SRCS:.cpp=.o)
+
+
+RED			= \033[0;31m
+GREEN		= \033[0;32m
+CRYAN		= \033[0;36m
+
+all: $(NAME)
+
+$(NAME): $(OBJS)
+	@echo "$(GREEN)Compiling $(NAME)..."
+	@$(CXX) $(CXXFLAGS) $(OBJS) -o $(NAME)
+	@echo "$(GREEN)$(NAME) compiled successfully!$(CRYAN)"
+
+%.o: %.cpp
+	@$(CXX) $(CXXFLAGS) -c $< -o $@
+
+clean:
+	@echo "$(RED)Cleaning $(NAME) object files..."
+	@rm -f $(OBJS)
+
+fclean: clean
+	@echo "$(RED)Cleaning $(NAME)..."
+	@rm -f $(NAME)
+
+re: fclean all
+
+.PHONY: clean fclean re all
