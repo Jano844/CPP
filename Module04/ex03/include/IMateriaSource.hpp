@@ -3,7 +3,6 @@
 #pragma once
 
 #include <iostream>
-#include "ICharacter.hpp"
 #include "AMateria.hpp"
 
 class IMateriaSource
