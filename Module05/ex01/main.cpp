@@ -1,38 +1,36 @@
 
 
 #include "Bureaucrat.hpp"
+#include "Form.hpp"
 
 int	main()
 {
-	Bureaucrat *test1 = new Bureaucrat();
-	std::cout << *test1 << std::endl;
+	Bureaucrat *test = new Bureaucrat();
+	Form *testForm = new Form();
 
 	try
 	{
-		test1->incrementGrade();
-		std::cout << *test1 << std::endl;
-		test1->incrementGrade();
-		std::cout << *test1 << std::endl;
-		test1->setGrade(1);
-		std::cout << *test1 << std::endl;
-		test1->setGrade(-190);
+		test->setName("Jan");
+		testForm->setName("Form");
+		test->setGrade(20);
+		testForm->setGradeToSign(110);
 	}
 	catch(const std::exception& e)
 	{
 		std::cerr << e.what() << '\n';
 	}
+	std::cout << testForm->getGradeToSign() << std::endl;
 
-	delete test1;
-	std::cout << "---------------------\n";
-
-
-	try {
-		Bureaucrat *test = new Bureaucrat("Jan", 120);
-		std::cout << *test << std::endl;
-		delete test;
+	try
+	{
+		test->signForm(*testForm);
+		testForm->beSigned(*test);
 	}
-	catch (std::exception &e) {
-		std::cout << e.what() << std::endl;
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << '\n';
 	}
+	
+
 	return 0;
 }
