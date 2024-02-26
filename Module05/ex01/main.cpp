@@ -26,16 +26,13 @@ int	main()
 	std::cout << "---------------------\n";
 
 
-	try
-	{
+	try {
 		Bureaucrat *test = new Bureaucrat("Jan", 120);
 		std::cout << *test << std::endl;
 		delete test;
 	}
-	catch (std::exception &e)
-	{
+	catch (std::exception &e) {
 		std::cout << e.what() << std::endl;
 	}
-	
 	return 0;
 }
