@@ -5,12 +5,13 @@
 
 Bureaucrat::Bureaucrat() : name("default"), grade(150) {}
 
-Bureaucrat::Bureaucrat(std::string name, int grade) : name(name), grade(grade)
+Bureaucrat::Bureaucrat(std::string name, int grade) : name(name)
 {
 	if (grade < 1)
 		throw GradeTooHighException();
 	if (grade > 150)
 		throw GradeTooLowException();
+	this->grade = grade;
 }
 
 Bureaucrat::Bureaucrat(Bureaucrat const &other) : name(other.name), grade(other.grade) {}
@@ -41,25 +42,25 @@ void Bureaucrat::setName(std::string name)
 
 void Bureaucrat::setGrade(int grade)
 {
-	this->grade = grade;
 	if (grade < 1)
 		throw GradeTooHighException();
 	if (grade > 150)
 		throw GradeTooLowException();
+	this->grade = grade;
 }
 
 void Bureaucrat::incrementGrade()
 {
-	grade--;
-	if (grade < 1)
+	if (grade <= 1)
 		throw GradeTooHighException();
+	grade--;
 }
 
 void Bureaucrat::decrementGrade()
 {
-	grade++;
-	if (grade > 150)
+	if (grade >= 150)
 		throw GradeTooLowException();
+	grade++;
 }
 
 void		Bureaucrat::signForm(Form &f) {
