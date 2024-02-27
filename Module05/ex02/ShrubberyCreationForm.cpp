@@ -23,7 +23,8 @@ void ShrubberyCreationForm::execute(Bureaucrat const &executor) const
 		throw GradeTooLowException();
 	if (getSigned() == false)
 		throw FormNotSigned();
-	std::ofstream outfile((this->target + "_shrubbery").c_str());
+	std::ofstream outfile((this->target + "_shrubbery" + ".txt").c_str());
+	// std::ofstream outfile((this->target + "_shrubbery").c_str());
 	outfile << "            /\\           "<< std::endl;
 	outfile << "           //\\\\         " << std::endl;
 	outfile << "          ///\\\\         " << std::endl;

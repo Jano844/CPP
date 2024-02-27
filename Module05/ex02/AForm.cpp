@@ -1,5 +1,5 @@
 
-#include "Form.hpp"
+#include "AForm.hpp"
 
 Form::Form() : name("default Form"), Signed(false), gradeToSign(150), gradeToExecute(150) {}
 
