@@ -74,6 +74,10 @@ void		Bureaucrat::signForm(Form &f) {
 	std::cout << this->name << " signed " << f.getName() << std::endl;
 }
 
+void	Bureaucrat::executeForm(AForm const & form) {
+	form.execute(*this);
+}
+
 
 const char* GradeTooLowException::what() const throw()
 {

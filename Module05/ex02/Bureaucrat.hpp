@@ -28,7 +28,7 @@ public:
 	void		decrementGrade();
 
 	void		signForm(Form &f);
-	
+	void		executeForm(AForm const & form);
 
 	
 };
