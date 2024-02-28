@@ -3,6 +3,7 @@
 #pragma once
 
 #include <iostream>
+#include <cmath>
 
 class ScalarHelper
 {
@@ -12,11 +13,12 @@ private:
 	ScalarHelper& operator=(ScalarHelper const& other);
 	std::string literal;
 	bool	isFloat;
-	bool	isDouble;
-	bool	isChar;
 	bool	isInt;
+	bool	isMinus;
+	bool	isPlus;
 	void	init_variables();
 	void	print_pseudo(std::string pseudo, int i);
+	double	ft_stod(std::string str);
 public:
 	ScalarHelper(std::string literal);
 	~ScalarHelper();
