@@ -18,7 +18,9 @@ ScalarHelper::ScalarHelper(std::string literal) : literal(literal)
 		}
 	}
 	if (this->literal.size() == 1) {
-		print_number(this->literal[0]);
+		if (std::isdigit(this->literal[0]))
+			this->literal[0] - '0';
+		print_number(static_cast<char>(this->literal[0]));
 		return ;
 	}
 
