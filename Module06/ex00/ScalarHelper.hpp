@@ -18,6 +18,7 @@ private:
 	bool	isPlus;
 	void	init_variables();
 	void	print_pseudo(std::string pseudo, int i);
+	void	print_number(double number);
 	double	ft_stod(std::string str);
 public:
 	ScalarHelper(std::string literal);

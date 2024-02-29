@@ -18,7 +18,7 @@ ScalarHelper::ScalarHelper(std::string literal) : literal(literal)
 		}
 	}
 	if (this->literal.size() == 1) {
-		std::cout << "isChar\n";
+		print_number(this->literal[0]);
 		return ;
 	}
 
@@ -54,13 +54,14 @@ ScalarHelper::ScalarHelper(std::string literal) : literal(literal)
 		test = static_cast<double>(atoi(this->literal.c_str()));
 	else
 		test = static_cast<double>(ft_stod(this->literal));
-	std::cout << test << std::endl;
+	print_number(test);
 }
 
 ScalarHelper::~ScalarHelper() {}
 
 
 void	ScalarHelper::init_variables() {
+	this->isInt = false;
 	this->isFloat = false;
 	this->isMinus = false;
 	this->isPlus = false;
@@ -107,4 +108,28 @@ double	ScalarHelper::ft_stod(std::string str) {
 	if (this->isMinus)
 		return result * -1;
 	return result;
+}
+
+void	ScalarHelper::print_number(double number) {
+	int		integer = static_cast<int>(number);
+	double test_int = static_cast<int>(number) - number;
+	if (test_int == 0.0)
+		this->isInt = true;
+	if (this->isInt == true)
+	{
+		if (integer > 127 || integer < 32)
+			std::cout << "Character is unpritable\n";
+		else
+			std::cout << "Char: " << static_cast<char>(integer) << std::endl;
+		std::cout << "Int: " << integer << std::endl;
+		std::cout << "Float: " << number << ".0f\n";
+		std::cout << "Double: " << number << ".0\n";
+	}
+	else
+	{
+		std::cout << "Character is Impossible\n";
+		std::cout << "Integer is Impossible\n";
+		std::cout << "Float: " << number << "f\n";
+		std::cout << "Double: " << number << "\n";
+	}
 }
