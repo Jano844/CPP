@@ -2,7 +2,7 @@
 
 #include "ScalarHelper.hpp"
 
-ScalarHelper::ScalarHelper(std::string literal) : literal(literal) 
+ScalarHelper::ScalarHelper(std::string literal) : literal(literal)
 {
 	init_variables();
 	if (this->literal[0] == '\0') {
@@ -19,7 +19,7 @@ ScalarHelper::ScalarHelper(std::string literal) : literal(literal)
 	}
 	if (this->literal.size() == 1) {
 		if (std::isdigit(this->literal[0]))
-			this->literal[0] - '0';
+			this->literal[0] -= '0';
 		print_number(static_cast<char>(this->literal[0]));
 		return ;
 	}
@@ -98,7 +98,7 @@ double	ScalarHelper::ft_stod(std::string str) {
 	size_t decimalPointPos = str.find('.');
 	for (size_t i = 0; i < decimalPointPos; ++i)
 		result = result * 10 + (str[i] - '0');
-	
+
 	if (decimalPointPos != std::string::npos) {
 		double fractionalPart = 0.0;
 		int numDigitsAfterDecimal = str.size() - decimalPointPos - 1;
@@ -120,7 +120,7 @@ void	ScalarHelper::print_number(double number) {
 	if (this->isInt == true)
 	{
 		if (integer > 127 || integer < 32)
-			std::cout << "Character is unpritable\n";
+			std::cout << "Character is unprintable\n";
 		else
 			std::cout << "Char: " << static_cast<char>(integer) << std::endl;
 		std::cout << "Int: " << integer << std::endl;

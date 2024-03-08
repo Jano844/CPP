@@ -1,10 +1,9 @@
-NAME		= convert
+NAME		= scalarizer
 CXX			= c++
 CXXFLAGS	= -Wall -Wextra -Werror -std=c++98
 
 SRCS		=	main.cpp \
-				ScalarConverter.cpp \
-				ScalarHelper.cpp
+				Scalarizer.cpp
 
 OBJS		= $(SRCS:.cpp=.o)
 
