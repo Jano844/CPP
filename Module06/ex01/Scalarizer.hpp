@@ -3,6 +3,7 @@
 #pragma once
 
 #include <iostream>
+#include <cstddef>
 #include "Data.hpp"
 
 class Data;
@@ -15,6 +16,6 @@ private:
 	~Scalarizer();
 	Scalarizer& operator=(Scalarizer const &other);
 public:
-	static uintptr_t serialize(Data* ptr);
-	static Data* deserialize(uintptr_t raw);
+	static size_t serialize(Data* ptr);
+	static Data* deserialize(size_t raw);
 };
