@@ -9,7 +9,6 @@
 
 
 int main() {
-
 	// Fill elements
 	Array<std::string> arr(3);
 	arr[0] = "HelloWorld";
@@ -23,7 +22,6 @@ int main() {
 
 	std::cout << arr;
 
-	// try to acces one of the elements
 	try {
 		std::cout << arr[1] << std::endl;
 	}
@@ -32,3 +30,19 @@ int main() {
 	}
 	return 0;
 }
+
+
+// int	main() {
+
+// 	Array<int> arr(5);
+// 	std::cout << arr;
+// 	return 0;
+// }
+
+// int	main() {
+
+// 	int * a = new int(0);
+// 	std::cout << *a << std::endl;
+// 	delete a;
+// 	return 0;
+// }
