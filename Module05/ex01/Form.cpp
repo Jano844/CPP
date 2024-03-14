@@ -41,29 +41,29 @@ int			Form::getGradeToExecute() const {
 	return this->gradeToExecute;
 }
 
-void		Form::setName(std::string set_name) {
-	this->name = set_name;
-}
+// void		Form::setName(std::string set_name) {
+// 	this->name = set_name;
+// }
 
 void		Form::setSigned(bool boolean) {
 	this->Signed = boolean;
 }
 
-void		Form::setGradeToSign(int num) {
-	if (num > 150)
-		throw GradeTooLowException();
-	if (num < 0)
-		throw GradeTooHighException();
-	this->gradeToSign = num;
-}
+// void		Form::setGradeToSign(int num) {
+// 	if (num > 150)
+// 		throw GradeTooLowException();
+// 	if (num < 0)
+// 		throw GradeTooHighException();
+// 	this->gradeToSign = num;
+// }
 
-void		Form::setGradeToExecute(int num) {
-	if (num > 150)
-		throw GradeTooLowException();
-	if (num < 0)
-		throw GradeTooHighException();
-	this->gradeToExecute = num;
-}
+// void		Form::setGradeToExecute(int num) {
+// 	if (num > 150)
+// 		throw GradeTooLowException();
+// 	if (num < 0)
+// 		throw GradeTooHighException();
+// 	this->gradeToExecute = num;
+// }
 
 void		Form::beSigned(Bureaucrat const &bureau) {
 	if (this->Signed == true) {

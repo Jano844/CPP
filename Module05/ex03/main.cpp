@@ -15,7 +15,12 @@ int	main()
 	Bureaucrat jan("Jan", 1);
 	Form *test;
 
-	test = someRandomIntern.makeForm("lol Robotomy", "HelloWorld");
+	test = someRandomIntern.makeForm("Robotomy", "HelloWorld");
+	if (test == NULL)
+	{
+		std::cout << "Form not found" << std::endl;
+		return (0);
+	}
 	try
 	{
 		test->beSigned(jan);

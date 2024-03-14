@@ -22,6 +22,7 @@ int	main()
 	{
 		std::cerr << e.what() << '\n';
 	}
+	delete Robo;
 
 	std::cout << "-------------------" << std::endl;
 
@@ -36,6 +37,7 @@ int	main()
 	{
 		std::cerr << e.what() << '\n';
 	}
+	delete Pres;
 	
 	std::cout << "-------------------" << std::endl;
 
@@ -50,6 +52,8 @@ int	main()
 	{
 		std::cerr << e.what() << '\n';
 	}
+	delete Shrub;
 	
+	delete test;
 	return 0;
 }

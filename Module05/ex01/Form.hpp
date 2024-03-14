@@ -25,10 +25,10 @@ public:
 	bool		getSigned() const;
 	int			getGradeToSign() const;
 	int			getGradeToExecute() const;
-	void		setName(std::string set_name);
+	// void		setName(std::string set_name);
 	void		setSigned(bool boolean);
-	void		setGradeToSign(int num);
-	void		setGradeToExecute(int num);
+	// void		setGradeToSign(int num);
+	// void		setGradeToExecute(int num);
 
 	void		beSigned(Bureaucrat const &bureau);
 };

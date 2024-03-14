@@ -16,5 +16,8 @@ public:
 	~Intern();
 	Intern &operator=(Intern const &other);
 
-	Form *makeForm(std::string form, std::string target);
+	Form	*makePresidentialPardonForm(const std::string& target);
+	Form	*makeRobotomyRequestForm(const std::string& target);
+	Form	*makeShrubberyCreationForm(const std::string& target);
+	Form	*makeForm(std::string form, std::string target);
 };

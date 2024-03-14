@@ -6,14 +6,12 @@
 int	main()
 {
 	Bureaucrat *test = new Bureaucrat();
-	Form *testForm = new Form();
+	Form *testForm = new Form("Form", 110, 1);
 
 	try
 	{
 		test->setName("Jan");
-		testForm->setName("Form");
-		test->setGrade(20);
-		testForm->setGradeToSign(110);
+		test->setGrade(149);
 	}
 	catch(const std::exception& e)
 	{

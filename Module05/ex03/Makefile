@@ -1,4 +1,4 @@
-NAME		= 28b
+NAME		= intern
 CXX			= c++
 CXXFLAGS	= -Wall -Wextra -Werror -std=c++98
 
