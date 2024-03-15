@@ -51,14 +51,14 @@ void Bureaucrat::setGrade(int grade)
 
 void Bureaucrat::incrementGrade()
 {
-	if (grade < 1)
+	if ((grade - 1) < 1)
 		throw Bureaucrat::GradeTooHighException();
 	grade--;
 }
 
 void Bureaucrat::decrementGrade()
 {
-	if (grade > 150)
+	if ((grade + 1) > 150)
 		throw Bureaucrat::GradeTooLowException();
 	grade++;
 }

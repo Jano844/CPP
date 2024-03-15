@@ -15,7 +15,8 @@ int	main()
 		std::cout << *test1 << std::endl;
 		test1->setGrade(1);
 		std::cout << *test1 << std::endl;
-		test1->setGrade(-190);
+		test1->incrementGrade();
+		std::cout << *test1 << std::endl;
 	}
 	catch(const std::exception& e)
 	{
