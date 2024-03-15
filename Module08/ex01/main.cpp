@@ -29,5 +29,6 @@ int main() {
 
 	std::cout << testArray.longestSpan() << std::endl;
 	std::cout << testArray.shortestSpan() << std::endl;
+
 	return 0;
 }
