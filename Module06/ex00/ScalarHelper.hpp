@@ -4,6 +4,9 @@
 
 #include <iostream>
 #include <cmath>
+#include <iostream>
+#include <iomanip>
+#include <limits>
 
 class ScalarHelper
 {
@@ -16,6 +19,7 @@ private:
 	bool	isInt;
 	bool	isMinus;
 	bool	isPlus;
+	unsigned int decimals;
 	void	init_variables();
 	void	print_pseudo(std::string pseudo, int i);
 	void	print_number(double number);

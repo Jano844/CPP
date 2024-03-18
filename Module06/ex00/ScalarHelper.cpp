@@ -41,6 +41,8 @@ ScalarHelper::ScalarHelper(std::string literal) : literal(literal)
 
 	while (i < this->literal.size())
 	{
+		if (dot_counter == 1)
+			this->decimals++;
 		if (this->literal[i] == '.')
 			dot_counter++;
 		if ((!std::isdigit(this->literal[i]) && this->literal[i] != '.') || dot_counter > 1 ||
@@ -50,13 +52,9 @@ ScalarHelper::ScalarHelper(std::string literal) : literal(literal)
 		}
 		i++;
 	}
-
-	double test;
 	if (dot_counter == 0)
-		test = static_cast<double>(atoi(this->literal.c_str()));
-	else
-		test = static_cast<double>(ft_stod(this->literal));
-	print_number(test);
+		this->literal += ".0";
+	print_number(static_cast<double>(ft_stod(this->literal)));
 }
 
 ScalarHelper::~ScalarHelper() {}
@@ -67,6 +65,7 @@ void	ScalarHelper::init_variables() {
 	this->isFloat = false;
 	this->isMinus = false;
 	this->isPlus = false;
+	this->decimals = 0;
 	int	i = 0;
 	int j = this->literal.size() - 1;
 	while (std::isspace(this->literal[i]))
@@ -117,21 +116,27 @@ void	ScalarHelper::print_number(double number) {
 	double test_int = static_cast<int>(number) - number;
 	if (test_int == 0.0)
 		this->isInt = true;
-	if (this->isInt == true)
+
+	bool Int_Is_Impossible = false;
+	if (number > std::numeric_limits<int>::max() || number < std::numeric_limits<int>::min())
+		Int_Is_Impossible = true;
+
+	if (this->isInt == true && Int_Is_Impossible == false)
 	{
 		if (integer > 127 || integer < 32)
 			std::cout << "Character is unprintable\n";
 		else
 			std::cout << "Char: " << static_cast<char>(integer) << std::endl;
+
 		std::cout << "Int: " << integer << std::endl;
-		std::cout << "Float: " << number << ".0f\n";
-		std::cout << "Double: " << number << ".0\n";
+		std::cout << "Float: " << std::fixed << std::setprecision(this->decimals) << static_cast<float>(number) << "f\n";
+		std::cout << "Double: " << std::fixed << std::setprecision(this->decimals) << number << "\n";
 	}
 	else
 	{
 		std::cout << "Character is Impossible\n";
 		std::cout << "Integer is Impossible\n";
-		std::cout << "Float: " << number << "f\n";
-		std::cout << "Double: " << number << "\n";
+		std::cout << "Float: " << std::fixed << std::setprecision(this->decimals) << static_cast<float>(number) << "f\n";
+		std::cout << "Double: " << std::fixed << std::setprecision(this->decimals) << number << "\n";
 	}
 }

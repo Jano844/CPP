@@ -16,6 +16,9 @@ CRYAN		= \033[0;36m
 all: $(NAME)
 
 $(NAME): $(OBJS)
+	@echo "$(GREEN)"
+	@cat frog.txt
+	@echo "\n\n $(CRYAN)\n\n"
 	@echo "$(GREEN)Compiling $(NAME)..."
 	@$(CXX) $(CXXFLAGS) $(OBJS) -o $(NAME)
 	@echo "$(GREEN)$(NAME) compiled successfully!$(CRYAN)"
