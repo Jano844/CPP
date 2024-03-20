@@ -29,6 +29,12 @@ void	Span::addNumber(int number) {
 	vec.push_back(number);
 }
 
+void	Span::addNumberArray(int *arr) {
+	for (int i = 0; arr[i]; i++) {
+		addNumber(arr[i]);
+	}
+}
+
 unsigned int	Span::getSize() {
 	return this->size;
 }

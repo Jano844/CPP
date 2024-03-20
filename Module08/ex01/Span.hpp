@@ -6,7 +6,6 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
-#include <random>
 
 class Span
 {
@@ -21,6 +20,8 @@ public:
 	Span& operator=(const Span & other);
 
 	void			addNumber(int number);
+
+	void			addNumberArray(int *arr);
 	unsigned int	shortestSpan();
 	unsigned int	longestSpan();
 	
