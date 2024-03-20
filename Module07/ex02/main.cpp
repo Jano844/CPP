@@ -23,6 +23,7 @@ int main() {
 	std::cout << arr;
 
 	try {
+		arr[1] = "I am Not Jan";
 		std::cout << arr[1] << std::endl;
 	}
 	catch (std::out_of_range& e) {
