@@ -70,6 +70,7 @@
 		"memory_resource": "cpp",
 		"__memory": "cpp",
 		"numeric": "cpp",
-		"random": "cpp"
+		"random": "cpp",
+		"list": "cpp"
 	}
 }
