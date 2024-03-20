@@ -33,10 +33,9 @@ public:
 		while (it != ite)
 			f(*it++);
 	}
-
-	// print function
 };
 
+// print function
 template <typename T>
 void print(T t) {
 	std::cout << t << std::endl;
