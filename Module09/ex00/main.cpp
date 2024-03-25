@@ -30,7 +30,7 @@ int main(int argc, char **argv)
 		return 1;
 	btc btc;
 	std::string file = static_cast<std::string>(argv[1]);
-	btc.fill_database(file);
-	btc.print_map();
+	btc.read_infile(file);
+	// btc.print_value("2021-12-13");
 	return 0;
 }
