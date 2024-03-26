@@ -36,22 +36,6 @@ void btc::fill_database(std::string file) {
 	}
 }
 
-void	btc::print_value(std::string key, float value) {
-	std::map<std::string, std::vector<std::string> >::iterator begin = this->databank.begin();
-	std::map<std::string, std::vector<std::string> >::iterator end = this->databank.end();
-
-	while (begin != end)
-	{
-		if (key == begin->first) {
-			std::string temp = begin->second[0];
-			std::cout << begin->first << " => " << std::atof(temp.c_str()) * value << std::endl;
-			return ;
-		}
-		begin++;
-	}
-	std::cout << "Date is not in the Database!!" << std::endl;
-}
-
 void btc::read_infile(std::string file) {
 	std::string key;
 	std::string line;
@@ -89,4 +73,79 @@ std::string	btc::trim_whitespaces(std::string str) {
 	if (j < i)
 		return "";
 	return str.substr(i, j - i + 1);
+}
+
+std::vector<std::string> btc::split(const std::string &s, char delimiter)
+{
+	std::vector<std::string> split;
+	std::stringstream stream(s);
+	std::string part;
+	
+	while (std::getline(stream, part, delimiter))
+		split.push_back(part);
+	return split;
+}
+
+void	btc::print_value(std::string key, float value) {
+	std::map<std::string, std::vector<std::string> >::iterator begin = this->databank.begin();
+	std::map<std::string, std::vector<std::string> >::iterator end = this->databank.end();
+
+	std::vector<std::string> vec = split(key, '-');
+	this->year = std::atoi(vec[0].c_str());
+	this->month = std::atoi(vec[1].c_str());
+	this->day = std::atoi(vec[2].c_str());
+
+	if (this->year > 2022 || (this->year == 2022 && this->month > 3)
+		|| (this->year == 2022 && this->month == 3 && this->day > 29)) {
+		std::cout << "No Data yet\n";
+		return ;
+	}
+	std::string temp = begin->first;
+	std::vector<std::string> data = split(temp, '-');
+	int data_year = std::atoi(data[0].c_str());
+	int data_month = std::atoi(data[1].c_str());
+	int data_day = std::atoi(data[2].c_str());
+	if (this->year < data_year || (this->year == data_year && this->month < data_month)
+		|| (this->year == data_year && this->month == data_month && this->day < data_day)) {
+		std::cout << "No Data yet\n";
+		return ;
+	}
+	while (data_year < this->year)
+	{
+		begin++;
+		temp = begin->first;
+		data = split(temp, '-');
+		data_year = std::atoi(data[0].c_str());
+		data_month = std::atoi(data[1].c_str());
+		data_day = std::atoi(data[2].c_str());
+	}
+	while (data_month < this->month) {
+		begin++;
+		temp = begin->first;
+		data = split(temp, '-');
+		data_year = std::atoi(data[0].c_str());
+		data_month = std::atoi(data[1].c_str());
+		data_day = std::atoi(data[2].c_str());
+		if (data_year > this->year) {
+			begin--;
+			break ;
+		}
+	}
+	while (data_day < this->day) {
+		begin++;
+		temp = begin->first;
+		data = split(temp, '-');
+		data_year = std::atoi(data[0].c_str());
+		data_month = std::atoi(data[1].c_str());
+		data_day = std::atoi(data[2].c_str());
+		if (data_year > this->year || data_month > this->month ) {
+			begin--;
+			break ;
+		}
+		// std::cout << data_day << " " << this->day << std::endl;
+	}
+	if (key != begin->first)
+		begin--;
+	std::string tmp = begin->second[0];
+	std::cout << key << " => " << value << " = " << value * std::atof(tmp.c_str())<< std::endl;
 }
