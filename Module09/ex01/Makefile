@@ -12,13 +12,14 @@ OBJS		= $(SRCS:.cpp=.o)
 RED			= \033[0;31m
 GREEN		= \033[0;32m
 CRYAN		= \033[0;36m
+DEFALUT		= \033[0m
 
 all: $(NAME)
 
 $(NAME): $(OBJS)
 	@echo "$(GREEN)Compiling $(NAME)..."
 	@$(CXX) $(CXXFLAGS) $(OBJS) -o $(NAME)
-	@echo "$(GREEN)$(NAME) compiled successfully!$(CRYAN)"
+	@echo "$(GREEN)$(NAME) compiled successfully!$(DEFALUT)"
 
 %.o: %.cpp
 	@$(CXX) $(CXXFLAGS) -c $< -o $@

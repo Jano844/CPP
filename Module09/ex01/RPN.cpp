@@ -21,16 +21,26 @@ void	RPN::check_input(std::string str) {
 }
 
 void	RPN::make_list(std::string str) {
+	int ops = 0, num = 0;
 	for (unsigned int i = 0; i < str.size(); i++)
 	{
 		if (str[i] != ' ') {
+			if (std::isdigit(str[i]))
+				num++;
+			else
+				ops++;
 			std::string temp(1, str[i]);
 			this->list.push_back(temp);
 		}
 	}
+	if (num - ops != 1) {
+		std::cout << "Wrong input!!\n";
+		exit(1);
+	}
 }
 
 void	RPN::print_list() {
+	// std::cout << "-----------\n";
 	std::list<std::string>::iterator begin = this->list.begin();
 	std::list<std::string>::iterator end = this->list.end();
 
@@ -74,40 +84,13 @@ void	RPN::fill_first() {
 		begin++;
 		this->list.pop_front();
 	}
-	if (ops_list.size() + 1 != number_list.size() || ops_list.size() == 0) {
-		std::cout << "Wrong input!!\n";
-		exit(1);
-	}
 }
 
 void	RPN::calc_first() {
-	float temp;
-	// if (this->number_list.size() == 2) {
-	// 	temp = this->number_list.back();
-	// 	this->number_list.pop_back();
-	// 	if (*this->ops_list.begin() == "*")
-	// 		temp *= *this->number_list.begin();
-	// 	if (*this->ops_list.begin() == "/")
-	// 		temp /= *this->number_list.begin();
-	// 	if (*this->ops_list.begin() == "+")
-	// 		temp += *this->number_list.begin();
-	// 	if (*this->ops_list.begin() == "-")
-	// 		temp -= *this->number_list.begin();
-	// 	this->number_list.pop_front();
-	// 	this->ops_list.pop_front();
-	// 	std::stringstream ss;
-	// 	ss << temp;
-	// 	std::string floatString = ss.str();
-	// 	this->list.push_front(floatString);
-	// 	return ;
-	// }
-
-	temp = *this->number_list.begin();
+	float temp = *this->number_list.begin();
 	this->number_list.pop_front();
 
-
-
-	while (this->number_list.size() != 0)
+	while (this->ops_list.size() != 0)
 	{
 		if (*this->ops_list.begin() == "*")
 			temp = *this->number_list.begin() * temp;
@@ -122,10 +105,21 @@ void	RPN::calc_first() {
 	}
 
 
+
 	std::stringstream ss;
 	ss << temp;
 	std::string floatString = ss.str();
+	// std::cout << temp << std::endl;
 	this->list.push_front(floatString);
+
+	while (this->number_list.size() != 0)
+	{
+		std::stringstream sstream;
+		sstream << this->number_list.front();
+		std::string f_toString = sstream.str();
+		this->list.push_front(f_toString);
+		this->number_list.pop_front();
+	}
 }
 
 void	RPN::calculation_loop() {

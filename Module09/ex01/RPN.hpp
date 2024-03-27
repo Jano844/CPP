@@ -7,6 +7,7 @@
 #include <cstdlib>
 #include <algorithm>
 #include <sstream>
+#include <cctype>
 
 class RPN
 {
