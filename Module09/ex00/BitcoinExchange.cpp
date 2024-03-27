@@ -88,7 +88,7 @@ std::vector<std::string> btc::split(const std::string &s, char delimiter)
 
 void	btc::print_value(std::string key, float value) {
 	std::map<std::string, std::vector<std::string> >::iterator begin = this->databank.begin();
-	std::map<std::string, std::vector<std::string> >::iterator end = this->databank.end();
+	// std::map<std::string, std::vector<std::string> >::iterator end = this->databank.end();
 
 	std::vector<std::string> vec = split(key, '-');
 	this->year = std::atoi(vec[0].c_str());
