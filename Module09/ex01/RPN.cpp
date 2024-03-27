@@ -82,26 +82,41 @@ void	RPN::fill_first() {
 
 void	RPN::calc_first() {
 	float temp;
-	if (this->number_list.size() == 2) {
-		temp = this->number_list.back();
-		this->number_list.pop_back();
-	}
-	else {
-		temp = *this->number_list.begin();
-		this->number_list.pop_front();
-	}
+	// if (this->number_list.size() == 2) {
+	// 	temp = this->number_list.back();
+	// 	this->number_list.pop_back();
+	// 	if (*this->ops_list.begin() == "*")
+	// 		temp *= *this->number_list.begin();
+	// 	if (*this->ops_list.begin() == "/")
+	// 		temp /= *this->number_list.begin();
+	// 	if (*this->ops_list.begin() == "+")
+	// 		temp += *this->number_list.begin();
+	// 	if (*this->ops_list.begin() == "-")
+	// 		temp -= *this->number_list.begin();
+	// 	this->number_list.pop_front();
+	// 	this->ops_list.pop_front();
+	// 	std::stringstream ss;
+	// 	ss << temp;
+	// 	std::string floatString = ss.str();
+	// 	this->list.push_front(floatString);
+	// 	return ;
+	// }
+
+	temp = *this->number_list.begin();
+	this->number_list.pop_front();
+
 
 
 	while (this->number_list.size() != 0)
 	{
 		if (*this->ops_list.begin() == "*")
-			temp *= *this->number_list.begin();
+			temp = *this->number_list.begin() * temp;
 		if (*this->ops_list.begin() == "/")
-			temp /= *this->number_list.begin();
+			temp = *this->number_list.begin() / temp;
 		if (*this->ops_list.begin() == "+")
-			temp += *this->number_list.begin();
+			temp = *this->number_list.begin() + temp;
 		if (*this->ops_list.begin() == "-")
-			temp -= *this->number_list.begin();
+			temp = *this->number_list.begin() - temp;
 		this->number_list.pop_front();
 		this->ops_list.pop_front();
 	}
