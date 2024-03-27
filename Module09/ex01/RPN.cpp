@@ -33,7 +33,7 @@ void	RPN::make_list(std::string str) {
 			this->list.push_back(temp);
 		}
 	}
-	if (num - ops != 1) {
+	if (num - ops != 1 || num == 1) {
 		std::cout << "Wrong input!!\n";
 		exit(1);
 	}
@@ -46,7 +46,9 @@ void	RPN::print_list() {
 
 	while (begin != end)
 	{
-		std::cout << *begin << std::endl;
+		std::string temp = *begin;
+		float print = std::atof(temp.c_str());
+		std::cout << std::setprecision(2) << print << std::endl;
 		begin++;
 	}
 }

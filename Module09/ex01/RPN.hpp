@@ -8,6 +8,8 @@
 #include <algorithm>
 #include <sstream>
 #include <cctype>
+#include <iostream>
+#include <iomanip>
 
 class RPN
 {
