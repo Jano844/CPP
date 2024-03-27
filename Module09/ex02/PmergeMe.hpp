@@ -7,6 +7,9 @@
 #include <vector>
 #include <string>
 #include <cstdlib>
+#include <iostream>
+#include <iomanip>
+
 
 #include <sys/time.h>
 
@@ -118,11 +121,20 @@ public:
 	bool	is_sorted(T& array) {
 		for(int i = 1; i < static_cast<int>(array.size()); i++) {
 			if (array[i - 1] >= array[i]) {
-				std::cout << std::endl << "Not Sorted\n";
+				// std::cout << std::endl << "Not Sorted\n";
 				return false;
 			}
 		}
-		std::cout << std::endl << "Sorted\n";
+		// std::cout << std::endl << "Sorted\n";
 		return true;
+	}
+
+
+	template<typename T>
+	void	merge_insert_sort(T &array) {
+		if (array.size() < BUCKET_SIZE * 2)
+			insertsort(array);
+		else
+			mergeSort(array);
 	}
 };

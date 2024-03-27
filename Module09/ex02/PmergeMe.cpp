@@ -40,17 +40,22 @@ void	Pmerge::check_fill_containers(char **nums) {
 	if (is_sorted(this->deque) || is_sorted(this->vector))
 		return ;
 
+	print(this->vector);
+
 	unsigned long long start = current_time();
-	mergeSort(this->vector);
-	is_sorted(this->vector);
-	unsigned long long end = current_time();
-	std::cout << end - start << std::endl;
+	merge_insert_sort(this->vector);
+	merge_insert_sort(this->vector);
+	unsigned long long total_vec = current_time() - start;
+
 
 	start = current_time();
-	mergeSort(this->deque);
-	is_sorted(this->vector);
-	end = current_time();
-	std::cout << end - start << std::endl;
+	merge_insert_sort(this->deque);
+	merge_insert_sort(this->vector);
+	unsigned long long total_deq = current_time() - start;
+
+	print(this->vector);
+	std::cout << std::fixed << "Time to process a range of 5 elements with std::vector : " << std::setprecision(5) << total_vec << "us" << std::endl;
+	std::cout << std::fixed << "Time to process a range of 5 elements with std::deque : " << std::setprecision(5) << total_deq << "us" << std::endl;
 }
 
 unsigned long long Pmerge::current_time() {
