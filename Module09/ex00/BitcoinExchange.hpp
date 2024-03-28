@@ -26,10 +26,10 @@ private:
 	std::string	trim_whitespaces(std::string str);
 	void		print_value(std::string key, float value);
 	void		split(const std::string &s, char delimiter, t_stringArray *split);
-public:
-	btc();
 	btc(const btc &other);
 	btc &operator=(const btc &other);
+public:
+	btc();
 	~btc();
 
 	void	read_infile(std::string file);

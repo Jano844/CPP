@@ -34,7 +34,10 @@ void	Pmerge::check_fill_containers(char **nums) {
 
 
 	// sort for vector and stop time
-	unsigned long long start = current_time();
+	unsigned long long start;
+
+
+	start = current_time();
 	fill_container(this->vector, nums);
 	if (is_sorted(this->vector))
 		return ;

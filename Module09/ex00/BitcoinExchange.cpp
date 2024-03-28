@@ -11,15 +11,6 @@ btc::btc() {
 btc::~btc() {
 }
 
-btc::btc(const btc &other) {
-	*this = other;
-}
-
-btc &btc::operator=(const btc &other) {
-	(void)other;
-	return *this;
-}
-
 void btc::fill_database(std::string file) {
 	std::string key;
 	std::string value;
@@ -148,7 +139,7 @@ void	btc::print_value(std::string key, float value) {
 		}
 		// std::cout << data_day << " " << this->day << std::endl;
 	}
-	if (key != begin->first)
+	if (key != begin->first && (!(this->day > 31) && !(this->month > 12)))
 		begin--;
 	std::string tmp = begin->second;
 	std::cout << key << " => " << value << " = " << value * std::atof(tmp.c_str())<< std::endl;

@@ -41,108 +41,106 @@ public:
 		}
 		return true;
 	}
-};
 
+	template<typename T>
+	void print(const T& cont) {
+		typename T::const_iterator begin = cont.begin();
+		typename T::const_iterator end = cont.end();
 
-template<typename T>
-void print(const T& cont) {
-	typename T::const_iterator begin = cont.begin();
-	typename T::const_iterator end = cont.end();
-
-	while (begin != end) {
-		std::cout << *begin << " ";
-		begin++;
+		while (begin != end) {
+			std::cout << *begin << " ";
+			begin++;
+		}
+		std::cout << std::endl;
 	}
-	std::cout << std::endl;
-}
 
+	template<typename T>
+	void	insertsort(T& array) {
+		for(int i = 1; i < static_cast<int>(array.size()); i++) {
+			int temp = array[i];
+			int j = i - 1;
+			
+			while(j >= 0 && array[j] > temp) {
+				array[j + 1] = array[j];
+				j--;
+			}
+			array[j + 1] = temp;
+		}
+	}
 
-template<typename T>
-void	insertsort(T& array) {
-	for(int i = 1; i < static_cast<int>(array.size()); i++) {
-		int temp = array[i];
-		int j = i - 1;
+	template<typename T>
+	void	mergeSort(T& array) {
+		int length = static_cast<int>(array.size());
+		if (length <= BUCKET_SIZE) return;
 		
-		while(j >= 0 && array[j] > temp) {
-			array[j + 1] = array[j];
-			j--;
+		int middle = length / 2;
+		T leftArray;
+		T rightArray;
+		
+		int i = 0;
+		
+		for(; i < length; i++) {
+			if(i < middle) {
+				leftArray.push_back(array[i]);
+			}
+			else {
+				rightArray.push_back(array[i]);
+			}
 		}
-		array[j + 1] = temp;
-	}
-}
-
-
-template<typename T>
-void	mergeSort(T& array) {
-	int length = static_cast<int>(array.size());
-	if (length <= BUCKET_SIZE) return;
-	
-	int middle = length / 2;
-	T leftArray;
-	T rightArray;
-	
-	int i = 0;
-	
-	for(; i < length; i++) {
-		if(i < middle) {
-			leftArray.push_back(array[i]);
+		mergeSort(leftArray);
+		mergeSort(rightArray);
+		if (leftArray.size() <= BUCKET_SIZE && rightArray.size() <= BUCKET_SIZE) {
+			insertsort(leftArray);
+			insertsort(rightArray);
 		}
-		else {
-			rightArray.push_back(array[i]);
+		merge(leftArray, rightArray, array);
+	}
+
+	template<typename T>
+	void	merge(T& leftArray, T& rightArray, T& array) {
+		int leftSize = static_cast<int>(array.size()) / 2;
+		int rightSize = static_cast<int>(array.size()) - leftSize;
+		int i = 0, l = 0, r = 0; 
+
+		while(l < leftSize && r < rightSize) {
+			if(leftArray[l] < rightArray[r]) {
+				array[i] = leftArray[l];
+				i++;
+				l++;
+			}
+			else {
+				array[i] = rightArray[r];
+				i++;
+				r++;
+			}
 		}
-	}
-	mergeSort(leftArray);
-	mergeSort(rightArray);
-	if (leftArray.size() <= BUCKET_SIZE && rightArray.size() <= BUCKET_SIZE) {
-		insertsort(leftArray);
-		insertsort(rightArray);
-	}
-	merge(leftArray, rightArray, array);
-}
-
-template<typename T>
-void	merge(T& leftArray, T& rightArray, T& array) {
-	int leftSize = static_cast<int>(array.size()) / 2;
-	int rightSize = static_cast<int>(array.size()) - leftSize;
-	int i = 0, l = 0, r = 0; 
-
-	while(l < leftSize && r < rightSize) {
-		if(leftArray[l] < rightArray[r]) {
+		while(l < leftSize) {
 			array[i] = leftArray[l];
 			i++;
 			l++;
 		}
-		else {
+		while(r < rightSize) {
 			array[i] = rightArray[r];
 			i++;
 			r++;
 		}
 	}
-	while(l < leftSize) {
-		array[i] = leftArray[l];
-		i++;
-		l++;
-	}
-	while(r < rightSize) {
-		array[i] = rightArray[r];
-		i++;
-		r++;
-	}
-}
 
 
-template<typename T>
-void	merge_insert_sort(T &array) {
-	if (array.size() < BUCKET_SIZE * 2)
-		insertsort(array);
-	else
-		mergeSort(array);
-}
-
-template<typename T>
-void	fill_container(T& array, char **nums) {
-	for (int i = 1; nums[i]; i++) {
-		is_integer(nums[i]);
-		array.push_back(std::atoi(nums[i]));
+	template<typename T>
+	void	merge_insert_sort(T &array) {
+		if (array.size() < BUCKET_SIZE * 2)
+			insertsort(array);
+		else
+			mergeSort(array);
 	}
-}
+
+	template<typename T>
+	void	fill_container(T& array, char **nums) {
+		for (int i = 1; nums[i]; i++) {
+			is_integer(nums[i]);
+			array.push_back(std::atoi(nums[i]));
+		}
+	}
+};
+
