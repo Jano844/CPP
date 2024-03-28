@@ -31,28 +31,31 @@ void	Pmerge::is_integer(std::string str) {
 }
 
 void	Pmerge::check_fill_containers(char **nums) {
-	for (int i = 1; nums[i]; i++) {
-		is_integer(nums[i]);
-		int temp = std::atoi(nums[i]);
-		this->deque.push_back(temp);
-		this->vector.push_back(temp);
-	}
-	if (is_sorted(this->deque) || is_sorted(this->vector))
-		return ;
 
-	print(this->vector);
 
+	// sort for vector and stop time
 	unsigned long long start = current_time();
-	merge_insert_sort(this->vector);
+	fill_container(this->vector, nums);
+	if (is_sorted(this->vector))
+		return ;
 	merge_insert_sort(this->vector);
 	unsigned long long total_vec = current_time() - start;
 
-
+	// sort for deque and stop time
 	start = current_time();
+	fill_container(this->deque, nums);
+	if (is_sorted(this->deque))
+		return ;
 	merge_insert_sort(this->deque);
-	merge_insert_sort(this->vector);
 	unsigned long long total_deq = current_time() - start;
 
+
+
+	//print unsorted list
+	for (int i = 1; nums[i]; i++)
+		std::cout << nums[i] << " ";
+	std::cout << std::endl;
+	// print sorted list and time to sort for each container
 	print(this->vector);
 	std::cout << std::fixed << "Time to process a range of 5 elements with std::vector : " << std::setprecision(5) << total_vec << "us" << std::endl;
 	std::cout << std::fixed << "Time to process a range of 5 elements with std::deque : " << std::setprecision(5) << total_deq << "us" << std::endl;
